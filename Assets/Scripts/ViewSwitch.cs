@@ -17,6 +17,18 @@ public class ViewSwitch : MonoBehaviour {
 		StarboardCamera.enabled = false;
 	}
 
+	public void ChangeCamera()
+	{
+		if (BowCamera.enabled)
+		{
+			ShowStarboardCamera();
+		}
+		else
+		{
+			ShowBowCamera();
+		}
+	}
+
 	void Start () {
 		ShowStarboardCamera();
 	}
