@@ -18,10 +18,9 @@ public class EnemyObjectsController : MonoBehaviour
 	void Update ()
 	{
 		floatingEnemySpawnTimer += Time.deltaTime;
-		Debug.Log("Time " + floatingEnemySpawnTimer);
-		if (floatingEnemySpawnTimer / 10 > numberOfFloatingEnemiesLaunched)
+		
+		if (floatingEnemySpawnTimer / 2 > numberOfFloatingEnemiesLaunched)
 		{
-			Debug.Log("number of enemies " + numberOfFloatingEnemiesLaunched);
 			Instantiate(FloatingEnemyPrefab);
 			numberOfFloatingEnemiesLaunched++;
 		}
