@@ -12,10 +12,14 @@ public class SignalInput : MonoBehaviour {
     public Button sigButtonLeft;
     public Button sigButtonRight;
     public Button sigButtonSend;
+    public Transmission friendlyship;
+
+    private string messageBuffer;
 
 	// Use this for initialization
 	void Start () {
         //curcamera = GameObject.Find("MainController").GetComponent<Controls>().currentCamera;
+        messageBuffer = "";
 	}
 	
 	// Update is called once per frame
@@ -38,30 +42,40 @@ public class SignalInput : MonoBehaviour {
     public void signalUp()
     {
         Debug.Log("Up");
+        messageBuffer += "U";
         signalOutput.color = Color.yellow;
     }
 
     public void signalDown()
     {
         Debug.Log("Down");
+        messageBuffer += "D";
         signalOutput.color = Color.green;
     }
 
     public void signalLeft()
     {
         Debug.Log("Left");
+        messageBuffer += "L";
         signalOutput.color = Color.blue;
     }
 
     public void signalRight()
     {
         Debug.Log("Right");
+        messageBuffer += "R";
         signalOutput.color = Color.red;
     }
 
     public void signalSend()
     {
-        Debug.Log("Send Message: ");
+        Debug.Log("Send Message: " + messageBuffer);
+        friendlyship.receiveTransmission(messageBuffer);
+        clearBuffer();
     }
 
+    public void clearBuffer()
+    {
+        messageBuffer = "";
+    }
 }
