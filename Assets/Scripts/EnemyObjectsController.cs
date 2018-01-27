@@ -19,7 +19,7 @@ public class EnemyObjectsController : MonoBehaviour
 	{
 		floatingEnemySpawnTimer += Time.deltaTime;
 		
-		if (floatingEnemySpawnTimer / 2 > numberOfFloatingEnemiesLaunched)
+		if (floatingEnemySpawnTimer / 5 > numberOfFloatingEnemiesLaunched)
 		{
 			Instantiate(FloatingEnemyPrefab);
 			numberOfFloatingEnemiesLaunched++;

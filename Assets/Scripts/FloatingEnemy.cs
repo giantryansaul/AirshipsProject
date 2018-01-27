@@ -12,7 +12,7 @@ public class FloatingEnemy : MonoBehaviour
 	{
 		var startPosition = StartPositionGenerator.GenerateFloatingEnemyStartPosition();
 		gameObject.transform.position = startPosition;
-		movement = new ObjectMovement(0, 0, -2, startPosition);
+		movement = new ObjectMovement(0, 0, -10, startPosition);
 	}
 	
 	// Update is called once per frame
@@ -21,5 +21,11 @@ public class FloatingEnemy : MonoBehaviour
 		gameObject.transform.position = movement.GetUpdatedPosition(Time.deltaTime);
 		if (gameObject.transform.position.z <= DestoryRangeZ)
 			Destroy(gameObject);
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		Destroy(gameObject);
+		Debug.Log("BOOM" + 	collision.gameObject.name);
 	}
 }
