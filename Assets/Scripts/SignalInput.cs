@@ -7,6 +7,11 @@ public class SignalInput : MonoBehaviour {
 
     //private Controls.cameraview curcamera;
     public Image signalOutput;
+    public Button sigButtonUp;
+    public Button sigButtonDown;
+    public Button sigButtonLeft;
+    public Button sigButtonRight;
+    public Button sigButtonSend;
 
 	// Use this for initialization
 	void Start () {
@@ -18,15 +23,15 @@ public class SignalInput : MonoBehaviour {
         if (GameObject.Find("MainController").GetComponent<Controls>().currentCamera == Controls.cameraview.starboard)
         {
             if (Input.GetKeyDown(KeyCode.W))
-                this.transform.Find("SignalButtonUp").GetComponent<Button>().onClick.Invoke();
+               sigButtonUp.GetComponent<Button>().onClick.Invoke();
             if (Input.GetKeyDown(KeyCode.A))
-                this.transform.Find("SignalButtonLeft").GetComponent<Button>().onClick.Invoke();
+                sigButtonLeft.GetComponent<Button>().onClick.Invoke();
             if (Input.GetKeyDown(KeyCode.D))
-                this.transform.Find("SignalButtonRight").GetComponent<Button>().onClick.Invoke();
+                sigButtonRight.GetComponent<Button>().onClick.Invoke();
             if (Input.GetKeyDown(KeyCode.S))
-                this.transform.Find("SignalButtonDown").GetComponent<Button>().onClick.Invoke();
+                sigButtonDown.GetComponent<Button>().onClick.Invoke();
             if (Input.GetKeyDown(KeyCode.R))
-                this.transform.Find("SignalButtonSend").GetComponent<Button>().onClick.Invoke();
+                sigButtonSend.GetComponent<Button>().onClick.Invoke();
         }	
 	}
 
