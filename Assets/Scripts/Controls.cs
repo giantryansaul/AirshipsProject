@@ -16,7 +16,7 @@ public class Controls : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			gameObject.GetComponent<ViewSwitch>().ChangeCamera();
-            this.gameObject.GetComponent<SignalInput>().clearBuffer();
+            GameObject.Find("SignalPanel").GetComponent<SignalInput>().clearBuffer();
 		}
 	}
 }
