@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f83658331b7f4c83ae076ebd726b4, type: 3}
+  m_Name: Codebook_L1
+  m_EditorClassIdentifier: 
+  instructionList:
+  - code: U
+    action: U
+  - code: D
+    action: D
+  - code: L
+    action: L
+  - code: R
+    action: R
