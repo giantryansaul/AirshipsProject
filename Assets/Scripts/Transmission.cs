@@ -6,15 +6,27 @@ public class Transmission : MonoBehaviour {
 
     private string receivedMessage;
     public InstructionList codebook;
+    public GameObject friendlyBeacon;
+
+    private float lightTimerMax = 0.25f;
+    private float lightTimer;
 
 	// Use this for initialization
 	void Start () {
-		
+        lightTimer = lightTimerMax;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+	    lightTimer -= Time.deltaTime;
+		if (lightTimer <= 0.0f)
+		{
+			if (friendlyBeacon.GetComponent<MeshRenderer>().material.color == Color.white)
+				friendlyBeacon.GetComponent<MeshRenderer>().material.color = Color.magenta;
+			else
+				friendlyBeacon.GetComponent<MeshRenderer>().material.color = Color.white;
+			lightTimer = lightTimerMax;
+		}
 	}
 
     public void receiveTransmission(string message)
@@ -39,7 +51,9 @@ public class Transmission : MonoBehaviour {
         if (isValid)
             takeAction(actionToTake);
         else
+        {
             Debug.Log("ERROR: invalid code!");
+        }
 
     }
 
