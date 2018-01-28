@@ -26,6 +26,6 @@ public class FloatingEnemy : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		Destroy(gameObject);
-		Debug.Log("BOOM" + 	collision.gameObject.name);
+		Debug.Log("BOOM " + 	collision.gameObject.name);
 	}
 }
