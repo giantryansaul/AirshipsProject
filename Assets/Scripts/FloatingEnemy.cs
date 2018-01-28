@@ -18,14 +18,16 @@ public class FloatingEnemy : MonoBehaviour
 		movement = new ObjectMovement(0, 0, -10, startPosV3);
 
 		RadarObject = Instantiate(RadarObjectPrefab);
-		RadarObject.GetComponent<Radar>().positionEnum = startPosition;
+		var radarComponent = RadarObject.GetComponent<FloatingEnemyRadar>();
+		radarComponent.positionEnum = startPosition;
+		radarComponent.targetShipName = ShipToTarget.name;
 		RadarObject.transform.SetParent(GameObject.Find("RadarPanel").transform, false);
 	}
 	
 	void Update ()
 	{
 		gameObject.transform.position = movement.GetUpdatedPosition(Time.deltaTime);
-		RadarObject.GetComponent<Radar>().UpdateRadarPosition(movement.GetCurrent2Dposition());
+		RadarObject.GetComponent<FloatingEnemyRadar>().UpdateRadarPosition(movement.GetCurrent2Dposition());
 		if (gameObject.transform.position.z <= DestoryRangeZ)
 			DestroyObject();
 	}

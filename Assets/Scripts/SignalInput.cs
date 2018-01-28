@@ -51,7 +51,6 @@ public class SignalInput : MonoBehaviour {
 
     public void signalUp()
     {
-        Debug.Log("Up");
         messageBuffer += "U";
         signalOutput.color = Color.yellow;
         fadeTimer = 1.0f;
@@ -59,7 +58,6 @@ public class SignalInput : MonoBehaviour {
 
     public void signalDown()
     {
-        Debug.Log("Down");
         messageBuffer += "D";
         signalOutput.color = Color.green;
         fadeTimer = 1.0f;
@@ -67,7 +65,6 @@ public class SignalInput : MonoBehaviour {
 
     public void signalLeft()
     {
-        Debug.Log("Left");
         messageBuffer += "L";
         signalOutput.color = Color.blue;
         fadeTimer = 1.0f;
@@ -75,7 +72,6 @@ public class SignalInput : MonoBehaviour {
 
     public void signalRight()
     {
-        Debug.Log("Right");
         messageBuffer += "R";
         signalOutput.color = Color.red;
         fadeTimer = 1.0f;
@@ -83,7 +79,6 @@ public class SignalInput : MonoBehaviour {
 
     public void signalSend()
     {
-        Debug.Log("Send Message: " + messageBuffer);
         friendlyship.receiveTransmission(messageBuffer);
         clearBuffer();
     }

@@ -8,17 +8,30 @@ public class Codebook : MonoBehaviour {
     [SerializeField] public List<InstructionList> codebooks;
     public Image codebookImage;
     public int currentLevel;
-    
+
+    [SerializeField] public float levelLengthInSeconds;
+    private float levelTimer;
 
 	// Use this for initialization
 	void Start () {
         currentLevel = 0;
         updateCodebook();
+        levelTimer = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        // levels increase based on length of time
+		if (currentLevel < 2)
+        {
+            levelTimer += Time.deltaTime;
+            if (levelTimer >= levelLengthInSeconds)
+            {
+                advanceLevel();
+                levelTimer = 0.0f;
+            }
+        }
 	}
 
     public void updateCodebook()
@@ -34,6 +47,8 @@ public class Codebook : MonoBehaviour {
             currentLevel++;
             Debug.Log("Current Level: " + currentLevel);
             updateCodebook();
+            // update music
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().updateMusic(currentLevel);
         }
     }
 }
