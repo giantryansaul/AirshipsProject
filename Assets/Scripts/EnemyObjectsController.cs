@@ -25,19 +25,23 @@ public class EnemyObjectsController : MonoBehaviour
 		
 		if (floatingEnemySpawnTimer / 5 > numberOfFloatingEnemiesLaunched)
 		{
-			var enemy = Instantiate(FloatingEnemyPrefab);
-			var floatingEnemy = enemy.GetComponent<FloatingEnemy>();
-			floatingEnemy.ShipToTarget = OurShip;
-			floatingEnemy.RadarObjectPrefab = FloatingEnemyPrefab;
-			numberOfFloatingEnemiesLaunched++;
+			InstantiateFloatingEnemy(OurShip);
 		}
 		
 		if (floatingEnemySpawnTimer / 10 > numberOfFloatingEnemiesLaunched)
 		{
-			var enemy = Instantiate(FloatingEnemyPrefab);
-			enemy.GetComponent<FloatingEnemy>().ShipToTarget = FriendlyShip;
-			numberOfFloatingEnemiesLaunched++;
+			InstantiateFloatingEnemy(FriendlyShip);
 		}
 		
+	}
+
+	private void InstantiateFloatingEnemy(GameObject ShipToTarget)
+	{
+		var enemy = Instantiate(FloatingEnemyPrefab);
+		var floatingEnemy = enemy.GetComponent<FloatingEnemy>();
+		floatingEnemy.ShipToTarget = ShipToTarget;
+		floatingEnemy.RadarObjectPrefab = FloatingEnemyRadarPrefab;
+		enemy.GetComponent<FloatingEnemy>().ShipToTarget = FriendlyShip;
+		numberOfFloatingEnemiesLaunched++;
 	}
 }

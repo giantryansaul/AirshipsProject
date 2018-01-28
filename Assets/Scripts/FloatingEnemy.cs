@@ -17,9 +17,10 @@ public class FloatingEnemy : MonoBehaviour
 		var startPosV3 = StartPositionGenerator.GenerateFloatingEnemyStartPosition(startPosition, ShipToTarget.transform.position);
 		gameObject.transform.position = startPosV3;
 		movement = new ObjectMovement(0, 0, -10, startPosV3);
-		
+
+		RadarObjectPrefab.GetComponent<Radar>().EnemyObject = gameObject;
 		RadarObject = Instantiate(RadarObjectPrefab);
-		RadarObject.GetComponent<Radar>().EnemyObject = gameObject;
+//		RadarObject.GetComponent<Radar>().EnemyObject = gameObject;
 	}
 	
 	// Update is called once per frame
