@@ -6,6 +6,7 @@ public class ViewSwitch : MonoBehaviour {
 	
 	public Camera StarboardCamera;
     public Canvas StarboardCanvas;
+	public Canvas StarboardBackgroundCanvas;
 	public Camera BowCamera;
     public Canvas BowCanvas;
 
@@ -16,6 +17,7 @@ public class ViewSwitch : MonoBehaviour {
         BowCanvas.enabled = false;
 		StarboardCamera.enabled = true;
         StarboardCanvas.enabled = true;
+		StarboardBackgroundCanvas.enabled = true;
         curcamera = Controls.cameraview.starboard;
 	}
     
@@ -24,6 +26,7 @@ public class ViewSwitch : MonoBehaviour {
         BowCanvas.enabled = true;
 		StarboardCamera.enabled = false;
         StarboardCanvas.enabled = false;
+		StarboardBackgroundCanvas.enabled = false;
         curcamera = Controls.cameraview.bow;
     }
 

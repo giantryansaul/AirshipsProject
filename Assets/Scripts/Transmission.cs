@@ -133,7 +133,6 @@ public class Transmission : MonoBehaviour {
             {
                 isValid = true;
                 actionToTake = i.action;
-                Debug.Log("Received valid code: " + message);
             }
         }
         if (isValid)
