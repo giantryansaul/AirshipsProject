@@ -10,22 +10,22 @@ public class FloatingEnemy : MonoBehaviour
 	public GameObject RadarObjectPrefab;
 	private GameObject RadarObject;
 	
-	// Use this for initialization
 	void Start ()
 	{
 		var startPosition = StartPositionGenerator.GenerateLanePosition();
 		var startPosV3 = StartPositionGenerator.GenerateFloatingEnemyStartPosition(startPosition, ShipToTarget.transform.position);
 		gameObject.transform.position = startPosV3;
 		movement = new ObjectMovement(0, 0, -10, startPosV3);
-		
+
 		RadarObject = Instantiate(RadarObjectPrefab);
-		RadarObject.GetComponent<Radar>().EnemyObject = gameObject;
+		RadarObject.GetComponent<Radar>().positionEnum = startPosition;
+		RadarObject.transform.SetParent(GameObject.Find("RadarPanel").transform, false);
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 		gameObject.transform.position = movement.GetUpdatedPosition(Time.deltaTime);
+		RadarObject.GetComponent<Radar>().UpdateRadarPosition(movement.GetCurrent2Dposition());
 		if (gameObject.transform.position.z <= DestoryRangeZ)
 			DestroyObject();
 	}
