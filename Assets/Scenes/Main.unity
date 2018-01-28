@@ -3329,6 +3329,7 @@ GameObject:
   - component: {fileID: 1901918417}
   - component: {fileID: 1901918418}
   - component: {fileID: 1901918419}
+  - component: {fileID: 1901918420}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -3436,6 +3437,17 @@ MonoBehaviour:
   codebookImage: {fileID: 886596440}
   currentLevel: 0
   levelLengthInSeconds: 60
+--- !u!114 &1901918420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1901918412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b6d47ff2374394ba336f67fe5cdcd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024446104
 GameObject:
   m_ObjectHideFlags: 0

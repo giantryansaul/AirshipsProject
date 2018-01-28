@@ -12,6 +12,11 @@ public class TitleScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Game Quit");
+            Application.Quit();
+        }
 		
 	}
 
