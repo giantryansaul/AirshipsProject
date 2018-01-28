@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281f83658331b7f4c83ae076ebd726b4, type: 3}
   m_Name: Codebook_L3
   m_EditorClassIdentifier: 
-  codeImage: {fileID: 21300000, guid: e9fd03911bfc29e4db568ec42156dd4b, type: 3}
+  codeImage: {fileID: 21300000, guid: 4b220be0ef2037847b6b34302b73006e, type: 3}
   instructionList:
   - code: UUR
     action: U
