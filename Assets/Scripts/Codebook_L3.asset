@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 281f83658331b7f4c83ae076ebd726b4, type: 3}
-  m_Name: Codebook_L1
+  m_Name: Codebook_L3
   m_EditorClassIdentifier: 
-  codeImage: {fileID: 21300000, guid: e10d3d54f9a5f7147a74502e3197e391, type: 3}
+  codeImage: {fileID: 21300000, guid: e9fd03911bfc29e4db568ec42156dd4b, type: 3}
   instructionList:
-  - code: U
+  - code: UUR
     action: U
-  - code: D
+  - code: LDU
     action: D
-  - code: L
+  - code: DRD
     action: L
-  - code: R
+  - code: ULR
     action: R
