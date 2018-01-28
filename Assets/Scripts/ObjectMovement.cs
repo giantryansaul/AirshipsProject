@@ -30,6 +30,11 @@ public class ObjectMovement
 
     public Vector2 GetCurrent2Dposition()
     {
-        return new Vector2(_currentPos.x, _currentPos.y);
+        return new Vector2(_currentPos.x, _currentPos.z);
+    }
+
+    public Vector3 GetCurrent3Dposition()
+    {
+        return _currentPos;
     }
 }
