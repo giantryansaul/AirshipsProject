@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyObjectsController : MonoBehaviour
 {
 	private float floatingEnemySpawnTimer;
-	private int numberOfFloatingEnemiesLaunched = 0;
+	private int numberOfFloatingFriendly = 0;
+	private int numberOfFloatingOurShip = 0;
 	public GameObject FloatingEnemyPrefab;
 	public GameObject FloatingEnemyRadarPrefab;
 
@@ -16,6 +17,7 @@ public class EnemyObjectsController : MonoBehaviour
 	void Start ()
 	{
 		floatingEnemySpawnTimer = 0f;
+		FloatingEnemyPrefab.GetComponent<FloatingEnemy>().RadarObjectPrefab = FloatingEnemyRadarPrefab;
 	}
 	
 	// Update is called once per frame
@@ -23,25 +25,23 @@ public class EnemyObjectsController : MonoBehaviour
 	{
 		floatingEnemySpawnTimer += Time.deltaTime;
 		
-		if (floatingEnemySpawnTimer / 5 > numberOfFloatingEnemiesLaunched)
+		if (floatingEnemySpawnTimer / 5 > numberOfFloatingFriendly)
 		{
 			InstantiateFloatingEnemy(OurShip);
+			numberOfFloatingFriendly++;
 		}
 		
-		if (floatingEnemySpawnTimer / 10 > numberOfFloatingEnemiesLaunched)
+		if (floatingEnemySpawnTimer / 10 > numberOfFloatingOurShip)
 		{
 			InstantiateFloatingEnemy(FriendlyShip);
+			numberOfFloatingOurShip++;
 		}
 		
 	}
 
 	private void InstantiateFloatingEnemy(GameObject ShipToTarget)
 	{
-		var enemy = Instantiate(FloatingEnemyPrefab);
-		var floatingEnemy = enemy.GetComponent<FloatingEnemy>();
-		floatingEnemy.ShipToTarget = ShipToTarget;
-		floatingEnemy.RadarObjectPrefab = FloatingEnemyRadarPrefab;
-		enemy.GetComponent<FloatingEnemy>().ShipToTarget = FriendlyShip;
-		numberOfFloatingEnemiesLaunched++;
+		FloatingEnemyPrefab.GetComponent<FloatingEnemy>().ShipToTarget = ShipToTarget;
+		Instantiate(FloatingEnemyPrefab);
 	}
 }
