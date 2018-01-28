@@ -15,11 +15,13 @@ public class SignalInput : MonoBehaviour {
     public Transmission friendlyship;
 
     private string messageBuffer;
+    private float fadeTimer;
 
 	// Use this for initialization
 	void Start () {
         //curcamera = GameObject.Find("MainController").GetComponent<Controls>().currentCamera;
         messageBuffer = "";
+        fadeTimer = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -37,6 +39,14 @@ public class SignalInput : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.R))
                 sigButtonSend.GetComponent<Button>().onClick.Invoke();
         }	
+
+        if (fadeTimer > 0.0f)
+        {
+            fadeTimer -= Time.deltaTime;
+            Color tempColor = signalOutput.color;
+            tempColor.a = fadeTimer;
+            signalOutput.color = tempColor;
+        }
 	}
 
     public void signalUp()
@@ -44,6 +54,7 @@ public class SignalInput : MonoBehaviour {
         Debug.Log("Up");
         messageBuffer += "U";
         signalOutput.color = Color.yellow;
+        fadeTimer = 1.0f;
     }
 
     public void signalDown()
@@ -51,6 +62,7 @@ public class SignalInput : MonoBehaviour {
         Debug.Log("Down");
         messageBuffer += "D";
         signalOutput.color = Color.green;
+        fadeTimer = 1.0f;
     }
 
     public void signalLeft()
@@ -58,6 +70,7 @@ public class SignalInput : MonoBehaviour {
         Debug.Log("Left");
         messageBuffer += "L";
         signalOutput.color = Color.blue;
+        fadeTimer = 1.0f;
     }
 
     public void signalRight()
@@ -65,6 +78,7 @@ public class SignalInput : MonoBehaviour {
         Debug.Log("Right");
         messageBuffer += "R";
         signalOutput.color = Color.red;
+        fadeTimer = 1.0f;
     }
 
     public void signalSend()
@@ -78,5 +92,6 @@ public class SignalInput : MonoBehaviour {
     {
         messageBuffer = "";
         signalOutput.color = Color.white;
+        fadeTimer = 1.0f;
     }
 }
