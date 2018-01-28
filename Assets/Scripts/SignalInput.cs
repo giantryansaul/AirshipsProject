@@ -77,5 +77,6 @@ public class SignalInput : MonoBehaviour {
     public void clearBuffer()
     {
         messageBuffer = "";
+        signalOutput.color = Color.white;
     }
 }

@@ -38,6 +38,10 @@ public class Transmission : MonoBehaviour {
                 lightTimer = 0.0f;
                 setBeaconColor(lightSequence[0]);
                 lightSequence = lightSequence.Substring(1, lightSequence.Length-1);
+
+                // exit early if broadcast is error (so we only display once)
+                if (lightSequence == "" && broadcastDirection == "error")
+                    broadcastStop();
             }
 
 
@@ -55,24 +59,30 @@ public class Transmission : MonoBehaviour {
         string retstring = "";
         string codeToUse = "";
 
-        // look up the direction code we need to move in
-        foreach (Instruction i in codebook.instructionList)
+        if (signal == "error")
         {
-            if (signal == i.action)
+            return "WWWWEWEWEW";
+        }
+        else
+        {
+            // look up the direction code we need to move in
+            foreach (Instruction i in codebook.instructionList)
             {
-                codeToUse = i.code;
-               
+                if (signal == i.action)
+                {
+                    codeToUse = i.code;
+                }
             }
-        }
 
-        // parse out the code and broadcast each color
-        for (int x = 0; x < codeToUse.Length; x++)
-        {
-            retstring += codeToUse[x] + "W";
-        }
-        retstring += "WW";  // delay between sequences
+            // parse out the code and broadcast each color
+            for (int x = 0; x < codeToUse.Length; x++)
+            {
+                retstring += codeToUse[x] + "W";
+            }
+            retstring += "WW";  // delay between sequences
 
-        return retstring;
+            return retstring;
+        }
     }
 
     private void setBeaconColor(char dir)
@@ -91,6 +101,9 @@ public class Transmission : MonoBehaviour {
                 break;
             case 'R':
                 clr = Color.red;
+                break;
+            case 'E':
+                clr = Color.magenta;
                 break;
             default:
                 clr = Color.white;
@@ -126,6 +139,7 @@ public class Transmission : MonoBehaviour {
         else
         {
             Debug.Log("ERROR: invalid code!");
+            broadcastStart("error");
         }
 
     }
@@ -140,6 +154,10 @@ public class Transmission : MonoBehaviour {
     {
         broadcastDirection = direction;
         lightIsOn = true;
+        if (direction == "error")
+            lightTimerMax = 0.1f;
+        else
+            lightTimerMax = 1.0f;
     }
 
     public void broadcastStop()
