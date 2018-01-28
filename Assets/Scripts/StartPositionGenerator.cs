@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RandomUnity = UnityEngine.Random;
 
 public static class StartPositionGenerator
 {
@@ -11,13 +13,18 @@ public static class StartPositionGenerator
 
     static StartPositionGenerator()
     {
-        Random.InitState(Seed);
+        RandomUnity.InitState(Seed);
+    }
+
+    public static Positions GenerateLanePosition()
+    {
+        var values = Enum.GetValues(typeof(Positions));
+        var position = values.GetValue(RandomUnity.Range(0, values.Length));
+        return (Positions) position;
     }
     
-    public static Vector3 GenerateFloatingEnemyStartPosition()
+    public static Vector3 GenerateFloatingEnemyStartPosition(Positions position, Vector3 relativePosition)
     {
-        var xPosition = Random.Range(-StartXRange, StartXRange);
-        var startPosition = new Vector3(xPosition, StartY, StartZ);
-        return startPosition;
+        return new Vector3(0, 0, StartZ) + relativePosition + Vector3Positions.GetVector3(position);
     }
 }

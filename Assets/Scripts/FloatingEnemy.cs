@@ -6,13 +6,20 @@ public class FloatingEnemy : MonoBehaviour
 {
 	private ObjectMovement movement;
 	public int DestoryRangeZ = -40;
+	public GameObject ShipToTarget;
+	public GameObject RadarObjectPrefab;
+	private GameObject RadarObject;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		var startPosition = StartPositionGenerator.GenerateFloatingEnemyStartPosition();
-		gameObject.transform.position = startPosition;
-		movement = new ObjectMovement(0, 0, -10, startPosition);
+		var startPosition = StartPositionGenerator.GenerateLanePosition();
+		var startPosV3 = StartPositionGenerator.GenerateFloatingEnemyStartPosition(startPosition, ShipToTarget.transform.position);
+		gameObject.transform.position = startPosV3;
+		movement = new ObjectMovement(0, 0, -10, startPosV3);
+		
+		RadarObject = Instantiate(RadarObjectPrefab);
+		RadarObject.GetComponent<Radar>().EnemyObject = gameObject;
 	}
 	
 	// Update is called once per frame
@@ -20,12 +27,19 @@ public class FloatingEnemy : MonoBehaviour
 	{
 		gameObject.transform.position = movement.GetUpdatedPosition(Time.deltaTime);
 		if (gameObject.transform.position.z <= DestoryRangeZ)
-			Destroy(gameObject);
+			DestroyObject();
+	}
+
+	private void DestroyObject()
+	{
+		Destroy(RadarObject);
+		Destroy(gameObject);
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		Destroy(gameObject);
-		Debug.Log("BOOM " + 	collision.gameObject.name);
+		DestroyObject();
+		
+		Debug.Log("BOOM " + collision.gameObject.name);
 	}
 }
