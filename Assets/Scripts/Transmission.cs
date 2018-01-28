@@ -29,12 +29,14 @@ public class Transmission : MonoBehaviour {
 		}
 	}
 
+    // friendly ship receives a message from player - goes to validate it
     public void receiveTransmission(string message)
     {
         receivedMessage = message;
         validateMessage(receivedMessage);
     }
 
+    // friendly ship validates code. If valid, takes action
     private void validateMessage(string message)
     {
         bool isValid = false;
@@ -57,8 +59,10 @@ public class Transmission : MonoBehaviour {
 
     }
 
+    // friendly ship takes action 
     private void takeAction(string message)
     {
         Debug.Log("Performing action: " + message);
     }
+
 }
