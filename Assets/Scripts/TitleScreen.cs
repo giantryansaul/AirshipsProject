@@ -22,6 +22,10 @@ public class TitleScreen : MonoBehaviour {
 
     public void startGame()
     {
+        GameObject musicObject = GameObject.Find("Music");
+        if (musicObject)
+            musicObject.GetComponent<AudioSource>().Stop();
+
         SceneManager.LoadScene(1);
     }
 }

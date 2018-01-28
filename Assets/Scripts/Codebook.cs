@@ -47,6 +47,8 @@ public class Codebook : MonoBehaviour {
             currentLevel++;
             Debug.Log("Current Level: " + currentLevel);
             updateCodebook();
+            // update music
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().updateMusic(currentLevel);
         }
     }
 }
