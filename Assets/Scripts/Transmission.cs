@@ -15,6 +15,8 @@ public class Transmission : MonoBehaviour {
     private bool lightIsOn;
     private string lightSequence;
 
+    public ShipMovement friendlyShip;
+
 	// Use this for initialization
 	void Start () {
         lightTimer = 0.0f;
@@ -145,9 +147,23 @@ public class Transmission : MonoBehaviour {
     }
 
     // friendly ship takes action 
-    private void takeAction(string message)
+    private void takeAction(string action)
     {
-        Debug.Log("Performing action: " + message);
+        switch (action)
+        {
+            case "D":
+                friendlyShip.MoveDown();
+                break;
+            case "U":
+                friendlyShip.MoveUp();
+                break;
+            case "R":
+                friendlyShip.MoveRight();
+                break;
+            case "L":
+                friendlyShip.MoveLeft();
+                break;
+        }
     }
 
     public void broadcastStart(string direction)
