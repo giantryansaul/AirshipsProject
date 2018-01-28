@@ -29,7 +29,11 @@ public class Codebook : MonoBehaviour {
 
     public void advanceLevel()
     {
-        currentLevel++;
-        updateCodebook();
+        if (currentLevel < 2)
+        {
+            currentLevel++;
+            Debug.Log("Current Level: " + currentLevel);
+            updateCodebook();
+        }
     }
 }
