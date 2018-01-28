@@ -27,4 +27,9 @@ public class ObjectMovement
         _currentPos = movement;
         return _currentPos;
     }
+
+    public Vector2 GetCurrent2Dposition()
+    {
+        return new Vector2(_currentPos.x, _currentPos.y);
+    }
 }
