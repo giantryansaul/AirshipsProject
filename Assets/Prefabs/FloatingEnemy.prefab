@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4072000844500646}
   - component: {fileID: 33991613495118094}
-  - component: {fileID: 135275869899611446}
   - component: {fileID: 23079315191839952}
   - component: {fileID: 114181099648760664}
   - component: {fileID: 54784487561838660}
+  - component: {fileID: 135931023816593882}
   m_Layer: 0
   m_Name: FloatingEnemy
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618865932231668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 10, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d272aa624974ceb4fa470470a83e9550, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +82,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618865932231668}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: bde112f3d464091428fea282c8ebc657, type: 3}
 --- !u!54 &54784487561838660
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -109,11 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f925cdeacddd446968845220b13f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestoryRangeZ: -40
   ShipToTarget: {fileID: 0}
   RadarObjectPrefab: {fileID: 1673262236152046, guid: 15cbaf60a6964474495a1b36d7172c2f,
     type: 2}
---- !u!135 &135275869899611446
+--- !u!135 &135931023816593882
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -123,5 +122,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 3.014048
+  m_Center: {x: 0.00000047683716, y: 0.673437, z: -0.00000047683716}

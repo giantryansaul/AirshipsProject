@@ -41,6 +41,7 @@ public class ViewSwitch : MonoBehaviour {
 			ShowBowCamera();
 		}
         GameObject.Find("MainController").GetComponent<Controls>().currentCamera = curcamera;
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().changeRoomAmbient(curcamera);
     }
 
 	void Start () {

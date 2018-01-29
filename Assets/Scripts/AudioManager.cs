@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         updateMusic(0);
+        changeRoomAmbient(Controls.cameraview.starboard);
 
 	}
 	
@@ -33,9 +34,9 @@ public class AudioManager : MonoBehaviour {
         currentMusic.Play();
     }
 
-    public void changeRoomAmbient(string room)
+    public void changeRoomAmbient(Controls.cameraview room)
     {
-        if (room == "starboard")
+        if (room == Controls.cameraview.starboard)
         {
             bowAmbient.Stop();
             starboardAmbient.Play();
