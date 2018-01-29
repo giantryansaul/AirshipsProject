@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 175.6, y: 191.63}
-  m_SizeDelta: {x: 103.1, y: 220.2}
+  m_AnchoredPosition: {x: 195.3, y: 182.9}
+  m_SizeDelta: {x: 111.5, y: 238.2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &209002952
 MonoBehaviour:
@@ -1445,7 +1445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -68.7, y: -93.8}
+  m_AnchoredPosition: {x: -71, y: -141}
   m_SizeDelta: {x: 69.4, y: 264.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623936572
@@ -1566,7 +1566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -288, y: -93.8}
+  m_AnchoredPosition: {x: -290.3, y: -141.00002}
   m_SizeDelta: {x: 69.4, y: 264.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634767897
@@ -1812,8 +1812,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800.14, y: 449.26}
+  m_AnchoredPosition: {x: 5.4, y: -5.9}
+  m_SizeDelta: {x: 865.6, y: 486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867247373
 MonoBehaviour:
@@ -1967,7 +1967,7 @@ RectTransform:
   m_GameObject: {fileID: 886596438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1834507687}
   m_RootOrder: 0
@@ -2434,7 +2434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.8, y: -93.8}
+  m_AnchoredPosition: {x: 44.50001, y: -141.00002}
   m_SizeDelta: {x: 69.4, y: 264.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073115398
@@ -3085,7 +3085,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 100.5
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -4170,7 +4170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -182.3, y: -93.8}
+  m_AnchoredPosition: {x: -184.59999, y: -141.00002}
   m_SizeDelta: {x: 69.4, y: 264.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024446106
