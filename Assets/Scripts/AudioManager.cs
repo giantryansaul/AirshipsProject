@@ -7,8 +7,16 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] public List<AudioClip> levelMusic;
     public AudioSource currentMusic;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField] public List<AudioClip> successSFX;
+    [SerializeField] public List<AudioClip> errorSFX;
+    [SerializeField] public List<AudioClip> impactSFX;
+    public AudioSource currentSFX;
+
+    public AudioSource starboardAmbient;
+    public AudioSource bowAmbient;
+
+    // Use this for initialization
+    void Start () {
         updateMusic(0);
 
 	}
@@ -23,5 +31,40 @@ public class AudioManager : MonoBehaviour {
         currentMusic.Stop();
         currentMusic.clip = levelMusic[level];
         currentMusic.Play();
+    }
+
+    public void changeRoomAmbient(string room)
+    {
+        if (room == "starboard")
+        {
+            bowAmbient.Stop();
+            starboardAmbient.Play();
+        }
+        else
+        {
+            starboardAmbient.Stop();
+            bowAmbient.Play();
+        }
+    }
+
+    public void playErrorSFX()
+    {
+        int rnd = Random.Range(0, errorSFX.Count);
+        currentSFX.clip = errorSFX[rnd];
+        currentSFX.PlayOneShot(errorSFX[rnd]);
+    }
+
+    public void playSuccessSFX()
+    {
+        int rnd = Random.Range(0, successSFX.Count);
+        currentSFX.clip = successSFX[rnd];
+        currentSFX.PlayOneShot(successSFX[rnd]);
+    }
+
+    public void playImpactSFX()
+    {
+        int rnd = Random.Range(0, impactSFX.Count);
+        currentSFX.clip = impactSFX[rnd];
+        currentSFX.PlayOneShot(impactSFX[rnd]);
     }
 }
