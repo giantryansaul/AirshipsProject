@@ -3002,9 +3002,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 47143bf2520b4a84fb5a1e2fee6ce4a3, type: 3}
   - {fileID: 8300000, guid: f0313b5a32234494baede8fbb25d5e9f, type: 3}
   currentMusic: {fileID: 1212287596}
-  successSFX: []
-  errorSFX: []
-  impactSFX: []
+  successSFX:
+  - {fileID: 8300000, guid: b9d49de8e52c4a9488980d900a0bbe3a, type: 3}
+  - {fileID: 8300000, guid: 50328ffb54a71d249807823268d1ee7c, type: 3}
+  - {fileID: 8300000, guid: ae4160e35241b964bbcb1dee37699b83, type: 3}
+  errorSFX:
+  - {fileID: 8300000, guid: fc20d04352de7e74da8faa70401ecc55, type: 3}
+  - {fileID: 8300000, guid: 9721fbe8f999b734696036a442442218, type: 3}
+  impactSFX:
+  - {fileID: 8300000, guid: e7d5cb93584cbec4fba7319cb36517cb, type: 3}
+  - {fileID: 8300000, guid: 4ccd4db5b1f782e4880ac6b2f08fd90f, type: 3}
+  - {fileID: 8300000, guid: 706b81c0be03540439424b44b3004642, type: 3}
   currentSFX: {fileID: 1212287599}
   starboardAmbient: {fileID: 1212287598}
   bowAmbient: {fileID: 1212287597}
@@ -3019,7 +3027,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3097,11 +3105,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0dde58d1b30d3044b56c67214121bc4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8c648988fd0acb24380ae9e22cd8180b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3181,7 +3189,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3303,7 +3311,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3327,7 +3335,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &1226185897
 GameObject:
   m_ObjectHideFlags: 0

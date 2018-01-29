@@ -136,10 +136,14 @@ public class Transmission : MonoBehaviour {
             }
         }
         if (isValid)
+        {
             takeAction(actionToTake);
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().playSuccessSFX();
+        }
         else
         {
             Debug.Log("ERROR: invalid code!");
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().playErrorSFX();
             broadcastStart("error");
         }
 
