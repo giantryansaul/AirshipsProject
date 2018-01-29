@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SignalInput : MonoBehaviour {
 
     //private Controls.cameraview curcamera;
-    public Image signalOutput;
+    public GameObject signalOutputObj;
     public Button sigButtonUp;
     public Button sigButtonDown;
     public Button sigButtonLeft;
@@ -16,12 +16,14 @@ public class SignalInput : MonoBehaviour {
 
     private string messageBuffer;
     private float fadeTimer;
+    private Material signalOutput;
 
 	// Use this for initialization
 	void Start () {
         //curcamera = GameObject.Find("MainController").GetComponent<Controls>().currentCamera;
         messageBuffer = "";
         fadeTimer = 0.0f;
+        signalOutput = signalOutputObj.GetComponent<MeshRenderer>().material;
 	}
 	
 	// Update is called once per frame

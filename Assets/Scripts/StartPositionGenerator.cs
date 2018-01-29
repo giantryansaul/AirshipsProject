@@ -6,9 +6,7 @@ using RandomUnity = UnityEngine.Random;
 
 public static class StartPositionGenerator
 {
-    public static int StartZ = 40;
-    public static int StartY = 0;
-    public static int StartXRange = 10;
+    public static int StartZ = 200;
     public static int Seed = 1001;
 
     static StartPositionGenerator()

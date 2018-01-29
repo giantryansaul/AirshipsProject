@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloatingEnemy : MonoBehaviour
 {
 	private ObjectMovement movement;
-	public int DestoryRangeZ = -40;
+	private int DestoryRangeZ = -50;
 	public GameObject ShipToTarget;
 	public GameObject RadarObjectPrefab;
 	private GameObject RadarObject;
