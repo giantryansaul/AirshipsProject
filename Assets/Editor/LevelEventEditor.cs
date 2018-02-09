@@ -14,15 +14,15 @@ public class LevelEventEditor : PropertyDrawer
         EditorGUI.indentLevel = 0;
 		
         var launchEnemyRect = new Rect(position.x, position.y, 15, position.height);
-        var launchAtShipsRect = new Rect(position.x + 17, position.y, 40, position.height);
-        var topRect = new Rect(position.x + 60, position.y, 15, position.height);
-        var leftRect = new Rect(position.x + 75, position.y, 15, position.height);
-        var rightRect = new Rect(position.x + 90, position.y, 15, position.height);
-        var bottomRect = new Rect(position.x + 105, position.y, 15, position.height);
+        var launchAtShipsRect = new Rect(launchEnemyRect.x + launchEnemyRect.width + 2, position.y, 60, position.height);
+        var topRect = new Rect(launchAtShipsRect.x + launchAtShipsRect.width, position.y, 15, position.height);
+        var leftRect = new Rect(topRect.x + topRect.width, position.y, 15, position.height);
+        var rightRect = new Rect(leftRect.x + leftRect.width, position.y, 15, position.height);
+        var bottomRect = new Rect(rightRect.x + rightRect.width, position.y, 15, position.height);
         
-        var showInstructionsRect = new Rect(position.x + 130, position.y, 20, position.height);
-        var instructionsRect = new Rect(position.x + 150, position.y, 50, position.height);
-        var instructionsScreenRect = new Rect(position.x + 205, position.y, 40, position.height);
+        var showInstructionsRect = new Rect(bottomRect.x + bottomRect.width + 10, position.y, 20, position.height);
+        var instructionsRect = new Rect(showInstructionsRect.x + showInstructionsRect.width + 1, position.y, 100, position.height);
+        var instructionsScreenRect = new Rect(instructionsRect.x + instructionsRect.width + 3, position.y, 70, position.height);
 
 
         var launchEnemy = property.FindPropertyRelative("LaunchEnemy");
@@ -32,9 +32,9 @@ public class LevelEventEditor : PropertyDrawer
         var right = property.FindPropertyRelative("Right");
         var bottom = property.FindPropertyRelative("Down");
 
-        var showInstructions = property.FindPropertyRelative("ShowInstructions");
-        var instructions = property.FindPropertyRelative("Instructions");
-        var instructionsScreen = property.FindPropertyRelative("InstructionsScreen");
+        var showInstructions = property.FindPropertyRelative("ShowTutorial");
+        var instructions = property.FindPropertyRelative("Tutorial");
+        var instructionsScreen = property.FindPropertyRelative("TutorialScreen");
     
         
         EditorGUI.PropertyField(launchEnemyRect, launchEnemy, GUIContent.none);

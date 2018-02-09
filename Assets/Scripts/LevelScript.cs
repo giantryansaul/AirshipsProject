@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
 
 [Serializable]
 public class LevelEvent
@@ -20,9 +16,9 @@ public class LevelEvent
 		Friendly
 	}
 	
-	public bool ShowInstructions;
-	public string Instructions;
-	public Screens InstructionsScreen;
+	public bool ShowTutorial;
+	public string Tutorial;
+	public Screens TutorialScreen;
 
 	public enum Screens
 	{

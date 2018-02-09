@@ -14,6 +14,10 @@ public class EnemyObjectsController : MonoBehaviour
 	public GameObject FloatingEnemyPrefab;
 	public GameObject FloatingEnemyRadarPrefab;
 
+	public GameObject TutorialPrefab;
+	public GameObject StarboardCanvas;
+	public GameObject BowCanvas;
+
 	public GameObject FriendlyShip;
 	public GameObject OurShip;
 
@@ -40,21 +44,19 @@ public class EnemyObjectsController : MonoBehaviour
 		
 		if (_floatingEnemySpawnTimer / ScriptInterval > _scriptTicks)
 		{
+			StartCoroutine("ExecuteScript", _scriptTicks);
+			_scriptTicks++;
 			if (_scriptTicks == _currentScript.Events.Length - 1 && _currentLevel == Levels.Levels.Length - 1)
 			{
-				Debug.Log("GAME OVER");	
-			} 
-			else
+				Debug.Log("GAME OVER");
+				Application.Quit();
+				return;
+			}
+			
+			if (_scriptTicks == _currentScript.Events.Length - 1)
 			{
-
-				StartCoroutine("ExecuteScript", _scriptTicks);
-				_scriptTicks++;
-
-				if (_scriptTicks == _currentScript.Events.Length - 1)
-				{
-					_currentLevel++;
-					SetLevel();
-				}
+				_currentLevel++;
+				SetLevel();
 			}
 		}
 	}
@@ -70,9 +72,16 @@ public class EnemyObjectsController : MonoBehaviour
 				InstantiateFloatingEnemies(OurShip, levelEvent);
 		}
 
-		if (levelEvent.ShowInstructions)
+		if (levelEvent.ShowTutorial)
 		{
-			Debug.Log(levelEvent.Instructions + " " + levelEvent.InstructionsScreen);
+			Debug.Log(levelEvent.Tutorial + " " + levelEvent.TutorialScreen);
+			var tutorialPF = TutorialPrefab.GetComponent<Tutorial>();
+			tutorialPF.Description = levelEvent.Tutorial;
+			var tutorial = Instantiate(TutorialPrefab);
+			if (levelEvent.TutorialScreen == LevelEvent.Screens.Bow)
+				tutorial.transform.SetParent(BowCanvas.transform, false);
+			else if (levelEvent.TutorialScreen == LevelEvent.Screens.Starboard)
+				tutorial.transform.SetParent(StarboardCanvas.transform, false);
 		}
 			
 		yield return null;
