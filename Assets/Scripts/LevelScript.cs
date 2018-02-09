@@ -9,6 +9,10 @@ public class LevelEvent
 {
 	public bool LaunchEnemy;
 	public Ships LaunchAtShips;
+	public bool Up;
+	public bool Left;
+	public bool Right;
+	public bool Down;
 	
 	public enum Ships
 	{

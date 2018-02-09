@@ -4072,12 +4072,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bac4575ea330d349ad6bd61e6c5174f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScriptInterval: 5
   FloatingEnemyPrefab: {fileID: 1618865932231668, guid: 56a12b6464a47be448c984e8c7f11bbc,
     type: 2}
   FloatingEnemyRadarPrefab: {fileID: 1673262236152046, guid: 15cbaf60a6964474495a1b36d7172c2f,
     type: 2}
   FriendlyShip: {fileID: 205423287}
   OurShip: {fileID: 597564340}
+  Levels: {fileID: 11400000, guid: b50e8652bb38026479573e63612bcc4e, type: 2}
 --- !u!114 &1901918417
 MonoBehaviour:
   m_ObjectHideFlags: 0
