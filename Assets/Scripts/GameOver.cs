@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.anyKeyDown)
 			Application.Quit();
 		_endGameTimer += Time.deltaTime;
 		if (_endGameTimer > stayOpen)
