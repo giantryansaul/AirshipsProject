@@ -4782,7 +4782,6 @@ GameObject:
   - component: {fileID: 1901918418}
   - component: {fileID: 1901918419}
   - component: {fileID: 1901918420}
-  - component: {fileID: 1901918421}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -4916,17 +4915,6 @@ MonoBehaviour:
     type: 2}
   farCloudsPrefab: {fileID: 1887583167995922, guid: f0218c8ea99c0ef419e502d4a9b0266c,
     type: 2}
---- !u!114 &1901918421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1901918412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b6d47ff2374394ba336f67fe5cdcd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1995337428
 GameObject:
   m_ObjectHideFlags: 0

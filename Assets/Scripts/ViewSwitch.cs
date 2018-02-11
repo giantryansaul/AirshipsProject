@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ViewSwitch : MonoBehaviour {
 	
@@ -14,27 +15,34 @@ public class ViewSwitch : MonoBehaviour {
 
     private Controls.cameraview curcamera;
 
-	public void ShowStarboardCamera() {
-		BowCamera.enabled = false;
-        BowCanvas.enabled = false;
-		StarboardCamera.enabled = true;
-        StarboardCanvas.enabled = true;
-		StarboardBackgroundCanvas.enabled = true;
-		StarboardMiddleCanvas.enabled = true;
-		StarboardFrontCanvas.enabled = true;
+	public void ShowStarboardCamera() 
+	{
+		SwitchBow(false);
+		SwitchStarboard(true);
         curcamera = Controls.cameraview.starboard;
 	}
     
-	public void ShowBowCamera() {
-		BowCamera.enabled = true;
-        BowCanvas.enabled = true;
-		StarboardCamera.enabled = false;
-        StarboardCanvas.enabled = false;
-		StarboardBackgroundCanvas.enabled = false;
-		StarboardMiddleCanvas.enabled = false;
-		StarboardFrontCanvas.enabled = false;
+	public void ShowBowCamera()
+	{
+		SwitchBow(true);
+		SwitchStarboard(false);
         curcamera = Controls.cameraview.bow;
     }
+
+	private void SwitchStarboard(bool status)
+	{
+		StarboardCamera.enabled = status;
+		StarboardCanvas.enabled = status;
+		StarboardBackgroundCanvas.enabled = status;
+		StarboardMiddleCanvas.enabled = status;
+		StarboardFrontCanvas.enabled = status;
+	}
+
+	private void SwitchBow(bool status)
+	{
+		BowCamera.enabled = status;
+		BowCanvas.enabled = status;
+	}
 
 	public void ChangeCamera()
 	{

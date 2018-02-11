@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EnemyObjectsController : MonoBehaviour
@@ -37,14 +38,22 @@ public class EnemyObjectsController : MonoBehaviour
 	{
 		_currentScript = Levels.Levels[_currentLevel];
 	}
-
+	
+	// Main Game loop is here, most of the game's logic works around this.
 	void Update ()
 	{
 		_floatingEnemySpawnTimer += Time.deltaTime;
 
-		if (!FriendlyShip.GetComponent<ShipHealth>().IsAlive() || !OurShip.GetComponent<ShipHealth>().IsAlive())
+		if (!OurShip.GetComponent<ShipHealth>().IsAlive())
 		{
-			Debug.Log("GAME OVER YOU LOST");
+			PlayerPrefs.SetString("Game Over Status", "Your ship has been destroyed!");
+			SceneManager.LoadScene(2);
+		}
+
+		if (!FriendlyShip.GetComponent<ShipHealth>().IsAlive())
+		{
+			PlayerPrefs.SetString("Game Over Status", "The Bronze Empress has been destroyed!");
+			SceneManager.LoadScene(2);
 		}
 		
 		if (_floatingEnemySpawnTimer / ScriptInterval > _scriptTicks)
@@ -53,7 +62,8 @@ public class EnemyObjectsController : MonoBehaviour
 			_scriptTicks++;
 			if (_scriptTicks == _currentScript.Events.Length - 1 && _currentLevel == Levels.Levels.Length - 1)
 			{
-				Debug.Log("GAME OVER YOU WON");
+				PlayerPrefs.SetString("Game Over Status", "You saved both ships, you won!");
+				SceneManager.LoadScene(2);
 				return;
 			}
 			
