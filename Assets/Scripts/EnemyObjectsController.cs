@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EnemyObjectsController : MonoBehaviour
@@ -25,6 +26,9 @@ public class EnemyObjectsController : MonoBehaviour
 
 	private int _currentLevel;
 	private LevelScript _currentScript;
+
+	private GameObject _lastBowTutorial;
+	private GameObject _lastStarboardTutorial;
 	
 	void Start ()
 	{
@@ -37,10 +41,23 @@ public class EnemyObjectsController : MonoBehaviour
 	{
 		_currentScript = Levels.Levels[_currentLevel];
 	}
-
+	
+	// Main Game loop is here, most of the game's logic works around this.
 	void Update ()
 	{
 		_floatingEnemySpawnTimer += Time.deltaTime;
+
+		if (!OurShip.GetComponent<ShipHealth>().IsAlive())
+		{
+			PlayerPrefs.SetString("Game Over Status", "Your ship has been destroyed!");
+			SceneManager.LoadScene(2);
+		}
+
+		if (!FriendlyShip.GetComponent<ShipHealth>().IsAlive())
+		{
+			PlayerPrefs.SetString("Game Over Status", "The Bronze Empress has been destroyed!");
+			SceneManager.LoadScene(2);
+		}
 		
 		if (_floatingEnemySpawnTimer / ScriptInterval > _scriptTicks)
 		{
@@ -48,8 +65,8 @@ public class EnemyObjectsController : MonoBehaviour
 			_scriptTicks++;
 			if (_scriptTicks == _currentScript.Events.Length - 1 && _currentLevel == Levels.Levels.Length - 1)
 			{
-				Debug.Log("GAME OVER");
-				Application.Quit();
+				PlayerPrefs.SetString("Game Over Status", "You saved both ships, you won!");
+				SceneManager.LoadScene(2);
 				return;
 			}
 			
@@ -74,14 +91,22 @@ public class EnemyObjectsController : MonoBehaviour
 
 		if (levelEvent.ShowTutorial)
 		{
-			Debug.Log(levelEvent.Tutorial + " " + levelEvent.TutorialScreen);
 			var tutorialPF = TutorialPrefab.GetComponent<Tutorial>();
 			tutorialPF.Description = levelEvent.Tutorial;
-			var tutorial = Instantiate(TutorialPrefab);
 			if (levelEvent.TutorialScreen == LevelEvent.Screens.Bow)
-				tutorial.transform.SetParent(BowCanvas.transform, false);
+			{
+				if (_lastBowTutorial)
+					Destroy(_lastBowTutorial);
+				_lastBowTutorial = Instantiate(TutorialPrefab);
+				_lastBowTutorial.transform.SetParent(BowCanvas.transform, false);
+			}
 			else if (levelEvent.TutorialScreen == LevelEvent.Screens.Starboard)
-				tutorial.transform.SetParent(StarboardCanvas.transform, false);
+			{
+				if (_lastStarboardTutorial)
+					Destroy(_lastStarboardTutorial);
+				_lastStarboardTutorial = Instantiate(TutorialPrefab);
+				_lastStarboardTutorial.transform.SetParent(StarboardCanvas.transform, false);
+			}
 		}
 			
 		yield return null;
