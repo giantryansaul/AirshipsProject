@@ -26,6 +26,9 @@ public class EnemyObjectsController : MonoBehaviour
 
 	private int _currentLevel;
 	private LevelScript _currentScript;
+
+	private GameObject _lastBowTutorial;
+	private GameObject _lastStarboardTutorial;
 	
 	void Start ()
 	{
@@ -90,11 +93,20 @@ public class EnemyObjectsController : MonoBehaviour
 		{
 			var tutorialPF = TutorialPrefab.GetComponent<Tutorial>();
 			tutorialPF.Description = levelEvent.Tutorial;
-			var tutorial = Instantiate(TutorialPrefab);
 			if (levelEvent.TutorialScreen == LevelEvent.Screens.Bow)
-				tutorial.transform.SetParent(BowCanvas.transform, false);
+			{
+				if (_lastBowTutorial)
+					Destroy(_lastBowTutorial);
+				_lastBowTutorial = Instantiate(TutorialPrefab);
+				_lastBowTutorial.transform.SetParent(BowCanvas.transform, false);
+			}
 			else if (levelEvent.TutorialScreen == LevelEvent.Screens.Starboard)
-				tutorial.transform.SetParent(StarboardCanvas.transform, false);
+			{
+				if (_lastStarboardTutorial)
+					Destroy(_lastStarboardTutorial);
+				_lastStarboardTutorial = Instantiate(TutorialPrefab);
+				_lastStarboardTutorial.transform.SetParent(StarboardCanvas.transform, false);
+			}
 		}
 			
 		yield return null;
