@@ -23,7 +23,6 @@ public class BackgroundMovement : MonoBehaviour {
 		height = Random.Range(-200, 200);
 		
 		transform.position = new Vector2(createSpot, height);
-		Color color;
 		switch (space)
 		{
 			case Location.Background:

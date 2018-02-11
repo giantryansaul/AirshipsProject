@@ -7,6 +7,8 @@ public class ViewSwitch : MonoBehaviour {
 	public Camera StarboardCamera;
     public Canvas StarboardCanvas;
 	public Canvas StarboardBackgroundCanvas;
+	public Canvas StarboardMiddleCanvas;
+	public Canvas StarboardFrontCanvas;
 	public Camera BowCamera;
     public Canvas BowCanvas;
 
@@ -18,6 +20,8 @@ public class ViewSwitch : MonoBehaviour {
 		StarboardCamera.enabled = true;
         StarboardCanvas.enabled = true;
 		StarboardBackgroundCanvas.enabled = true;
+		StarboardMiddleCanvas.enabled = true;
+		StarboardFrontCanvas.enabled = true;
         curcamera = Controls.cameraview.starboard;
 	}
     
@@ -27,6 +31,8 @@ public class ViewSwitch : MonoBehaviour {
 		StarboardCamera.enabled = false;
         StarboardCanvas.enabled = false;
 		StarboardBackgroundCanvas.enabled = false;
+		StarboardMiddleCanvas.enabled = false;
+		StarboardFrontCanvas.enabled = false;
         curcamera = Controls.cameraview.bow;
     }
 

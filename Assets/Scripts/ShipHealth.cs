@@ -31,4 +31,9 @@ public class ShipHealth : MonoBehaviour
 	{
 		HealthIndicatorSlider.value = _health;
 	}
+
+	public bool IsAlive()
+	{
+		return _health != 0;
+	}
 }

@@ -41,6 +41,11 @@ public class EnemyObjectsController : MonoBehaviour
 	void Update ()
 	{
 		_floatingEnemySpawnTimer += Time.deltaTime;
+
+		if (!FriendlyShip.GetComponent<ShipHealth>().IsAlive() || !OurShip.GetComponent<ShipHealth>().IsAlive())
+		{
+			Debug.Log("GAME OVER YOU LOST");
+		}
 		
 		if (_floatingEnemySpawnTimer / ScriptInterval > _scriptTicks)
 		{
@@ -48,8 +53,7 @@ public class EnemyObjectsController : MonoBehaviour
 			_scriptTicks++;
 			if (_scriptTicks == _currentScript.Events.Length - 1 && _currentLevel == Levels.Levels.Length - 1)
 			{
-				Debug.Log("GAME OVER");
-				Application.Quit();
+				Debug.Log("GAME OVER YOU WON");
 				return;
 			}
 			
