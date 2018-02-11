@@ -33,6 +33,6 @@ public class ShipRadar : MonoBehaviour
 		else
 			shipPosition = shipOffset;
 			
-		transform.localPosition = new Vector2(shipPosition, 20);
+		transform.localPosition = new Vector2(shipPosition, 0);
 	}
 }

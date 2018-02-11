@@ -9,17 +9,21 @@ public class FloatingEnemy : MonoBehaviour
 	public GameObject ShipToTarget;
 	public GameObject RadarObjectPrefab;
 	private GameObject RadarObject;
+
+	public Positions StartPosition;
+	public Vector3 StartPosV3;
+	public Vector3 StartDistance = new Vector3(0, 0, 200);
 	
 	void Start ()
 	{
-		var startPosition = StartPositionGenerator.GenerateLanePosition();
-		var startPosV3 = StartPositionGenerator.GenerateFloatingEnemyStartPosition(startPosition, ShipToTarget.transform.position);
-		gameObject.transform.position = startPosV3;
-		movement = new ObjectMovement(0, 0, -10, startPosV3);
+		var relativePosition = Vector3Positions.GetRelativePosition(StartPosition);
+		StartPosV3 = StartDistance + ShipToTarget.transform.position + relativePosition;
+		gameObject.transform.position = StartPosV3;
+		movement = new ObjectMovement(0, 0, -10, StartPosV3);
 
 		RadarObject = Instantiate(RadarObjectPrefab);
 		var radarComponent = RadarObject.GetComponent<FloatingEnemyRadar>();
-		radarComponent.positionEnum = startPosition;
+		radarComponent.positionEnum = StartPosition;
 		radarComponent.targetShipName = ShipToTarget.name;
 		RadarObject.transform.SetParent(GameObject.Find("RadarPanel").transform, false);
 	}
