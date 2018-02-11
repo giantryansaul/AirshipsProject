@@ -45,6 +45,12 @@ public class EnemyObjectsController : MonoBehaviour
 	// Main Game loop is here, most of the game's logic works around this.
 	void Update ()
 	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Debug.Log("Game Quit");
+			Application.Quit();
+		}
+		
 		_floatingEnemySpawnTimer += Time.deltaTime;
 
 		if (!OurShip.GetComponent<ShipHealth>().IsAlive())

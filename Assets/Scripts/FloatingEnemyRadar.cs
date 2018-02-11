@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FloatingEnemyRadar : MonoBehaviour
 {
 	private GameObject radarPanelObject;
-	private int maxViewDistance = 100;
+	private int maxViewDistance = 200;
 	private Vector2 radarDimensions;
 
 	public Positions positionEnum;
