@@ -46,7 +46,7 @@ public class FloatingEnemy : MonoBehaviour
 	{
 		DestroyObject();
 		
-		Debug.Log("BOOM " + collision.gameObject.name);
+		collision.gameObject.GetComponent<ShipHealth>().DamageShip();
         GameObject.Find("AudioManager").GetComponent<AudioManager>().playImpactSFX();
 	}
 }

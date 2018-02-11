@@ -74,7 +74,6 @@ public class EnemyObjectsController : MonoBehaviour
 
 		if (levelEvent.ShowTutorial)
 		{
-			Debug.Log(levelEvent.Tutorial + " " + levelEvent.TutorialScreen);
 			var tutorialPF = TutorialPrefab.GetComponent<Tutorial>();
 			tutorialPF.Description = levelEvent.Tutorial;
 			var tutorial = Instantiate(TutorialPrefab);
