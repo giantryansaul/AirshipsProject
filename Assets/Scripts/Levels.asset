@@ -14,7 +14,7 @@ MonoBehaviour:
   Levels:
   - Events:
     - LaunchEnemy: 0
-      LaunchAtShips: 0
+      LaunchAtShips: 1
       Up: 1
       Left: 1
       Right: 1
@@ -23,7 +23,7 @@ MonoBehaviour:
       Tutorial: Welcome!
       TutorialScreen: 1
     - LaunchEnemy: 0
-      LaunchAtShips: 1
+      LaunchAtShips: 0
       Up: 1
       Left: 1
       Right: 1
@@ -33,18 +33,18 @@ MonoBehaviour:
       TutorialScreen: 1
     - LaunchEnemy: 0
       LaunchAtShips: 0
-      Up: 1
+      Up: 0
       Left: 1
       Right: 1
-      Down: 1
+      Down: 0
       ShowTutorial: 1
       Tutorial: Use the controls to move the ship.
       TutorialScreen: 0
     - LaunchEnemy: 0
       LaunchAtShips: 0
       Up: 1
-      Left: 1
-      Right: 1
+      Left: 0
+      Right: 0
       Down: 1
       ShowTutorial: 0
       Tutorial: 
@@ -68,7 +68,7 @@ MonoBehaviour:
       Tutorial: 
       TutorialScreen: 0
     - LaunchEnemy: 1
-      LaunchAtShips: 1
+      LaunchAtShips: 0
       Up: 1
       Left: 0
       Right: 0
