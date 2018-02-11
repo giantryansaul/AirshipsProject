@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - Events:
-    - LaunchEnemy: 0
+    - LaunchEnemy: 1
       LaunchAtShips: 0
       Up: 1
       Left: 1
